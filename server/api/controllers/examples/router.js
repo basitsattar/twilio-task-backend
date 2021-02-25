@@ -4,5 +4,5 @@ import controller from './controller';
 export default express
   .Router()
   .post('/', controller.create)
-  .get('/getPhoneNumbers/:code', controller.getPhoneNumbers)
+  .get('/phoneNumbers/:code', controller.getPhoneNumbers)
   .get('/:id', controller.byId);

@@ -7,7 +7,7 @@ import * as os from 'os';
 import l from './logger';
 import * as OpenApiValidator from 'express-openapi-validator';
 import errorHandler from '../api/middlewares/error.handler';
-
+import cors from 'cors';
 const app = new Express();
 
 export default class ExpressServer {
@@ -21,6 +21,7 @@ export default class ExpressServer {
     );
 
     app.set('appPath', `${root}client`);
+    app.use(cors());
     app.use(bodyParser.json({ limit: process.env.REQUEST_LIMIT || '100kb' }));
     app.use(
       bodyParser.urlencoded({
